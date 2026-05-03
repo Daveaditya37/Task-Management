@@ -24,32 +24,20 @@ function Sidebar() {
 
   return (
     <div className="w-[260px] h-screen sticky top-0 bg-white border-r border-gray-200 p-5 flex flex-col justify-between overflow-y-auto">
-
-      {/* ======================================
-          TOP SECTION
-      ====================================== */}
-
       <div className="flex flex-col">
-
-        {/* LOGO */}
         <div className="mb-10">
           <h1 className="text-2xl font-bold text-[#e8566c]">Ethara AI</h1>
           <p className="text-sm text-gray-500 mt-1">Task Management System</p>
         </div>
-
-        {/* ======================================
-            MENU
-        ====================================== */}
-
         <div className="flex flex-col gap-2">
-
-          {/* ADMIN LINKS */}
           {user?.role === "ADMIN" && (
             <>
               <Link
                 to="/admin/dashboard"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive("/admin/dashboard") ? "bg-[#e8566c] text-white" : "text-gray-700 hover:bg-gray-100"
+                  isActive("/admin/dashboard")
+                    ? "bg-[#e8566c] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 <LayoutDashboard size={20} />
@@ -59,7 +47,9 @@ function Sidebar() {
               <Link
                 to="/projects"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive("/projects") ? "bg-[#e8566c] text-white" : "text-gray-700 hover:bg-gray-100"
+                  isActive("/projects")
+                    ? "bg-[#e8566c] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 <FolderKanban size={20} />
@@ -69,7 +59,9 @@ function Sidebar() {
               <Link
                 to="/tasks"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive("/tasks") ? "bg-[#e8566c] text-white" : "text-gray-700 hover:bg-gray-100"
+                  isActive("/tasks")
+                    ? "bg-[#e8566c] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 <ClipboardList size={20} />
@@ -79,7 +71,9 @@ function Sidebar() {
               <Link
                 to="/members"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive("/members") ? "bg-[#e8566c] text-white" : "text-gray-700 hover:bg-gray-100"
+                  isActive("/members")
+                    ? "bg-[#e8566c] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 <Users size={20} />
@@ -87,14 +81,14 @@ function Sidebar() {
               </Link>
             </>
           )}
-
-          {/* MEMBER LINKS */}
           {user?.role === "MEMBER" && (
             <>
               <Link
                 to="/member/dashboard"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive("/member/dashboard") ? "bg-[#e8566c] text-white" : "text-gray-700 hover:bg-gray-100"
+                  isActive("/member/dashboard")
+                    ? "bg-[#e8566c] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 <LayoutDashboard size={20} />
@@ -104,7 +98,9 @@ function Sidebar() {
               <Link
                 to="/my-tasks"
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive("/my-tasks") ? "bg-[#e8566c] text-white" : "text-gray-700 hover:bg-gray-100"
+                  isActive("/my-tasks")
+                    ? "bg-[#e8566c] text-white"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 <ClipboardList size={20} />
@@ -112,17 +108,9 @@ function Sidebar() {
               </Link>
             </>
           )}
-
         </div>
       </div>
-
-      {/* ======================================
-          BOTTOM SECTION
-      ====================================== */}
-
       <div>
-
-        {/* USER INFO */}
         <div className="mb-4 p-4 bg-gray-100 rounded-lg">
           <h3 className="font-semibold text-sm">{user?.name}</h3>
           <p className="text-xs text-gray-500 mt-1">{user?.email}</p>
@@ -130,8 +118,6 @@ function Sidebar() {
             {user?.role}
           </span>
         </div>
-
-        {/* LOGOUT */}
         <button
           onClick={handleLogout}
           className="w-full flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg transition-all"
@@ -139,9 +125,7 @@ function Sidebar() {
           <LogOut size={18} />
           Logout
         </button>
-
       </div>
-
     </div>
   );
 }

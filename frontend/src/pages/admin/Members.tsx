@@ -36,7 +36,6 @@ export default function Members() {
 
   return (
     <div className="space-y-8">
-      {/* Create Member Form */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-xl font-bold mb-4">Add New Member</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
@@ -93,7 +92,6 @@ export default function Members() {
         </form>
       </div>
 
-      {/* Members List */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-xl font-bold mb-4">Team Members</h2>
         {isLoading ? (

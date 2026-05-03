@@ -7,7 +7,7 @@ export const signupService = async (
   name: string,
   email: string,
   password: string,
-  role: Role = "MEMBER"
+  role: Role = "MEMBER",
 ) => {
   const existingUser = await db.user.findUnique({
     where: { email },
@@ -31,10 +31,7 @@ export const signupService = async (
   return user;
 };
 
-export const loginService = async (
-  email: string,
-  password: string
-) => {
+export const loginService = async (email: string, password: string) => {
   const user = await db.user.findUnique({
     where: { email },
   });
@@ -43,10 +40,7 @@ export const loginService = async (
     throw new Error("Invalid credentials");
   }
 
-  const isPasswordValid = await bcrypt.compare(
-    password,
-    user.password
-  );
+  const isPasswordValid = await bcrypt.compare(password, user.password);
 
   if (!isPasswordValid) {
     throw new Error("Invalid credentials");
@@ -61,7 +55,7 @@ export const loginService = async (
     process.env.JWT_SECRET as string,
     {
       expiresIn: "7d",
-    }
+    },
   );
 
   return {

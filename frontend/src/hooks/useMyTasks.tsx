@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { getMyTasks, startTask, completeTask, createTask } from "../service";
 
-// 🔹 Get tasks
+
 export const useMyTasks = () => {
   return useQuery({
     queryKey: ["myTasks"],
@@ -9,7 +9,6 @@ export const useMyTasks = () => {
   });
 };
 
-// 🔹 Create task
 export const useCreateTask = () => {
   const queryClient = useQueryClient();
 
@@ -18,11 +17,9 @@ export const useCreateTask = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["myTasks"] });
     },
-
   });
 };
 
-// 🔹 Start task
 export const useStartTask = () => {
   const queryClient = useQueryClient();
 
@@ -34,7 +31,6 @@ export const useStartTask = () => {
   });
 };
 
-// 🔹 Complete task
 export const useCompleteTask = () => {
   const queryClient = useQueryClient();
 

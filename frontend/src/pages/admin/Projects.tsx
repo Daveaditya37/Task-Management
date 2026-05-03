@@ -37,7 +37,6 @@ export default function Projects() {
 
   return (
     <div className="space-y-8">
-      {/* Create Project Form */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-xl font-bold mb-4">Create New Project</h2>
         <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
@@ -75,8 +74,6 @@ export default function Projects() {
           </button>
         </form>
       </div>
-
-      {/* Projects List */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-xl font-bold mb-4">All Projects</h2>
         {showLoader ? (

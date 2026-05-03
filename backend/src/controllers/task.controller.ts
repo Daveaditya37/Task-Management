@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
 import { db } from "../db";
 
-// ======================================
-// CREATE TASK
-// ======================================
-
 export const createTask = async (Request: Request, Response: Response) => {
   try {
     const {
@@ -57,10 +53,6 @@ export const createTask = async (Request: Request, Response: Response) => {
   }
 };
 
-// ======================================
-// GET ALL TASKS
-// ======================================
-
 export const getTasks = async (Request: Request, Response: Response) => {
   try {
     const tasks = await db.task.findMany({
@@ -104,10 +96,6 @@ export const getTasks = async (Request: Request, Response: Response) => {
   }
 };
 
-// ======================================
-// GET SINGLE TASK
-// ======================================
-
 export const getSingleTask = async (Request: Request, Response: Response) => {
   try {
     const id = Request.params.id as string;
@@ -149,10 +137,6 @@ export const getSingleTask = async (Request: Request, Response: Response) => {
     });
   }
 };
-
-// ======================================
-// UPDATE TASK
-// ======================================
 
 export const updateTask = async (Request: Request, Response: Response) => {
   try {
@@ -203,10 +187,6 @@ export const updateTask = async (Request: Request, Response: Response) => {
   }
 };
 
-// ======================================
-// DELETE TASK
-// ======================================
-
 export const deleteTask = async (Request: Request, Response: Response) => {
   try {
     const id = Request.params.id as string;
@@ -242,10 +222,6 @@ export const deleteTask = async (Request: Request, Response: Response) => {
     });
   }
 };
-
-// ======================================
-// MEMBER TASKS
-// ======================================
 
 export const getMyTasks = async (Request: Request, Response: Response) => {
   try {
@@ -284,10 +260,6 @@ export const getMyTasks = async (Request: Request, Response: Response) => {
     });
   }
 };
-
-// ======================================
-// START TASK
-// ======================================
 
 export const startTask = async (Request: Request, Response: Response) => {
   try {
@@ -330,10 +302,6 @@ export const startTask = async (Request: Request, Response: Response) => {
     });
   }
 };
-
-// ======================================
-// COMPLETE TASK
-// ======================================
 
 export const completeTask = async (Request: Request, Response: Response) => {
   try {

@@ -11,15 +11,15 @@ interface JwtPayload {
 
 export const authenticateUser = (allowedRoles: Role[]) => {
   return async (
-    req: Request,
-    res: Response,
-    next: NextFunction
+    Request: Request,
+    Response: Response,
+    NextFunction: NextFunction
   ) => {
     try {
-      const token = req.headers.authorization?.split(" ")[1];
+      const token = Request.headers.authorization?.split(" ")[1];
 
       if (!token) {
-        return res.status(401).json({
+        return Response.status(401).json({
           message: "No token provided",
         });
       }
@@ -36,26 +36,26 @@ export const authenticateUser = (allowedRoles: Role[]) => {
       });
 
       if (!user) {
-        return res.status(404).json({
+        return Response.status(404).json({
           message: "User not found",
         });
       }
 
       if (!allowedRoles.includes(user.role)) {
-        return res.status(403).json({
+        return Response.status(403).json({
           message: "Access denied",
         });
       }
 
-      (req as any).user = {
+      (Request as any).user = {
         id: user.id,
         role: user.role,
         email: user.email,
       };
 
-      next();
+      NextFunction();
     } catch {
-      return res.status(401).json({
+      return Response.status(401).json({
         message: "Invalid or expired token",
       });
     }
@@ -63,14 +63,14 @@ export const authenticateUser = (allowedRoles: Role[]) => {
 };
 
 export const authMiddleware = (
-  req: Request,
-  res: Response,
-  next: NextFunction
+  Request: Request,
+  Response: Response,
+  NextFunction: NextFunction
 ) => {
-  const token = req.headers.authorization?.split(" ")[1];
+  const token = Request.headers.authorization?.split(" ")[1];
 
   if (!token) {
-    return res.status(401).json({
+    return Response.status(401).json({
       message: "No token provided",
     });
   }
@@ -81,15 +81,15 @@ export const authMiddleware = (
       process.env.JWT_SECRET as string
     ) as JwtPayload;
 
-   (req as any).user = {
+   (Request as any).user = {
       id: decoded.id,
       role: decoded.role,
       email: decoded.email,
     };
 
-    next();
+    NextFunction();
   } catch {
-    return res.status(401).json({
+    return Response.status(401).json({
       message: "Invalid token",
     });
   }

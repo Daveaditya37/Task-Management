@@ -38,7 +38,6 @@ export default function Tasks() {
 
   return (
     <div className="space-y-8">
-      {/* Create Task Form */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-xl font-bold mb-4">Assign New Task</h2>
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -91,8 +90,7 @@ export default function Tasks() {
           </div>
         </form>
       </div>
-
-      {/* Tasks List */}
+      
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-xl font-bold mb-4">All Assigned Tasks</h2>
         {loadingTasks ? <p>Loading...</p> : tasks.length === 0 ? <p className="text-gray-500">No tasks found.</p> : (

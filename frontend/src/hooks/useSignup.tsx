@@ -18,10 +18,10 @@ export function useSignup() {
   });
 
   return {
-    signup:    mutation.mutate,
+    signup: mutation.mutate,
     isLoading: mutation.isPending,
-    isError:   mutation.isError,
-    error:     mutation.error,
-    reset:     mutation.reset,
+    isError: mutation.isError,
+    error: mutation.error,
+    reset: mutation.reset,
   };
 }

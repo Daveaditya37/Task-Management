@@ -1,10 +1,5 @@
 import { QueryClient } from "@tanstack/react-query";
 
-
-// ======================================
-// QUERY CLIENT
-// ======================================
-
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -15,15 +10,7 @@ export const queryClient = new QueryClient({
   },
 });
 
-
-// ======================================
-// INVALIDATE QUERY
-// ======================================
-
-export const invalidateQuery = (
-  queryKey: string[]
-) =>
-
+export const invalidateQuery = (queryKey: string[]) =>
   queryClient.invalidateQueries({
     queryKey,
   });

@@ -79,11 +79,6 @@ export const getProjects = async (
   }
 };
 
-
-// ==========================
-// GET SINGLE PROJECT
-// ==========================
-
 export const getSingleProject = async (
   Request: Request,
   Response: Response
@@ -139,11 +134,6 @@ export const getSingleProject = async (
   }
 };
 
-
-// ==========================
-// UPDATE PROJECT
-// ==========================
-
 export const updateProject = async (
   Request: Request,
   Response: Response
@@ -188,11 +178,6 @@ export const updateProject = async (
     });
   }
 };
-
-
-// ==========================
-// DELETE PROJECT
-// ==========================
 
 export const deleteProject = async (
   Request: Request,
