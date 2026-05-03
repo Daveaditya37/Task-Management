@@ -16,12 +16,12 @@ exports.authMiddleware = exports.authenticateUser = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const index_1 = require("../db/index");
 const authenticateUser = (allowedRoles) => {
-    return (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    return (Request, Response, NextFunction) => __awaiter(void 0, void 0, void 0, function* () {
         var _a;
         try {
-            const token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1];
+            const token = (_a = Request.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1];
             if (!token) {
-                return res.status(401).json({
+                return Response.status(401).json({
                     message: "No token provided",
                 });
             }
@@ -32,49 +32,49 @@ const authenticateUser = (allowedRoles) => {
                 },
             });
             if (!user) {
-                return res.status(404).json({
+                return Response.status(404).json({
                     message: "User not found",
                 });
             }
             if (!allowedRoles.includes(user.role)) {
-                return res.status(403).json({
+                return Response.status(403).json({
                     message: "Access denied",
                 });
             }
-            req.user = {
+            Request.user = {
                 id: user.id,
                 role: user.role,
                 email: user.email,
             };
-            next();
+            NextFunction();
         }
         catch (_b) {
-            return res.status(401).json({
+            return Response.status(401).json({
                 message: "Invalid or expired token",
             });
         }
     });
 };
 exports.authenticateUser = authenticateUser;
-const authMiddleware = (req, res, next) => {
+const authMiddleware = (Request, Response, NextFunction) => {
     var _a;
-    const token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1];
+    const token = (_a = Request.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(" ")[1];
     if (!token) {
-        return res.status(401).json({
+        return Response.status(401).json({
             message: "No token provided",
         });
     }
     try {
         const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
-        req.user = {
+        Request.user = {
             id: decoded.id,
             role: decoded.role,
             email: decoded.email,
         };
-        next();
+        NextFunction();
     }
     catch (_b) {
-        return res.status(401).json({
+        return Response.status(401).json({
             message: "Invalid token",
         });
     }

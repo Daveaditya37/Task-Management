@@ -11,9 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.completeTask = exports.startTask = exports.getMyTasks = exports.deleteTask = exports.updateTask = exports.getSingleTask = exports.getTasks = exports.createTask = void 0;
 const db_1 = require("../db");
-// ======================================
-// CREATE TASK
-// ======================================
 const createTask = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { title, description, priority, estimatedTime, dueDate, assignedTo, projectId, isPrivate, } = Request.body;
@@ -54,9 +51,6 @@ const createTask = (Request, Response) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.createTask = createTask;
-// ======================================
-// GET ALL TASKS
-// ======================================
 const getTasks = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const tasks = yield db_1.db.task.findMany({
@@ -97,9 +91,6 @@ const getTasks = (Request, Response) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.getTasks = getTasks;
-// ======================================
-// GET SINGLE TASK
-// ======================================
 const getSingleTask = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;
@@ -138,9 +129,6 @@ const getSingleTask = (Request, Response) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.getSingleTask = getSingleTask;
-// ======================================
-// UPDATE TASK
-// ======================================
 const updateTask = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;
@@ -184,9 +172,6 @@ const updateTask = (Request, Response) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.updateTask = updateTask;
-// ======================================
-// DELETE TASK
-// ======================================
 const deleteTask = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;
@@ -220,9 +205,6 @@ const deleteTask = (Request, Response) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.deleteTask = deleteTask;
-// ======================================
-// MEMBER TASKS
-// ======================================
 const getMyTasks = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = Request.user;
@@ -257,9 +239,6 @@ const getMyTasks = (Request, Response) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.getMyTasks = getMyTasks;
-// ======================================
-// START TASK
-// ======================================
 const startTask = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;
@@ -298,9 +277,6 @@ const startTask = (Request, Response) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.startTask = startTask;
-// ======================================
-// COMPLETE TASK
-// ======================================
 const completeTask = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;

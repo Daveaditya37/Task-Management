@@ -75,9 +75,6 @@ const getProjects = (Request, Response) => __awaiter(void 0, void 0, void 0, fun
     }
 });
 exports.getProjects = getProjects;
-// ==========================
-// GET SINGLE PROJECT
-// ==========================
 const getSingleProject = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;
@@ -126,9 +123,6 @@ const getSingleProject = (Request, Response) => __awaiter(void 0, void 0, void 0
     }
 });
 exports.getSingleProject = getSingleProject;
-// ==========================
-// UPDATE PROJECT
-// ==========================
 const updateProject = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;
@@ -166,9 +160,6 @@ const updateProject = (Request, Response) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.updateProject = updateProject;
-// ==========================
-// DELETE PROJECT
-// ==========================
 const deleteProject = (Request, Response) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = Request.params.id;
