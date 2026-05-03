@@ -1,0 +1,16 @@
+[deploy]
+startCommand = "caddy run --config /app/Caddyfile --adapter caddyfile"
+
+[build]
+buildCommand = "npm run build"
+
+[[build.copyToRuntime]]
+src = "dist"
+dest = "/app/dist"
+
+[[build.copyToRuntime]]
+src = "Caddyfile"
+dest = "/app/Caddyfile"
+
+[providers.caddy]
+version = "latest"
