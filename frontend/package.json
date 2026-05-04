@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "tsc -b && vite build",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "start": "vite preview --host 0.0.0.0 --port $PORT"
-},
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "serve -s dist -l $PORT"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
     "@tanstack/react-query": "^5.100.8",
@@ -20,6 +20,7 @@
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",
     "react-toastify": "^11.1.0",
+    "serve": "^14.2.6",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4",
     "zod": "^4.4.2"
