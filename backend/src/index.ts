@@ -15,8 +15,8 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// Handle preflight requests explicitly
-app.options("*", cors());
+// Express 5 requires (.*) instead of *
+app.options("(.*)", cors());
 
 app.use(express.json());
 
