@@ -15,9 +15,6 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-// Express 5 requires (.*) instead of *
-app.options("(.*)", cors());
-
 app.use(express.json());
 
 app.use("/api", allRouter);
