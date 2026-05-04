@@ -9,7 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: "*",
+  origin: "https://ethara-task-management.up.railway.app",
+  credentials: true,
 }));
 
 app.use(express.json());
