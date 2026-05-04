@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "echo BUILD_STARTED && tsc -b && vite build && echo BUILD_DONE",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "serve -s dist -l $PORT"
