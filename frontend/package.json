@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "echo BUILD_STARTED && tsc -b && vite build && echo BUILD_DONE",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "serve -s dist -l $PORT"
+    "start": "npx serve -s dist -l 0.0.0.0:$PORT"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
